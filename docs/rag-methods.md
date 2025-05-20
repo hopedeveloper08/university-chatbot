@@ -4,6 +4,7 @@
 - [**Semantic Chunking**](#semantic-chunking-alternative-to-fixed-length-chunking)
 - [**Context Enriched**](#context-enriched)
 - [**Chunking with Metadata**](#chunking-with-metadata)
+- [**Document Augmentation with Question Generation**](#document-augmentation-with-question-generation)
 
 # Simple RAG 
 
@@ -84,3 +85,16 @@ In standard chunking, important contextual information may be lost. To address t
 - Add a short, meaningful title or other metadata to each chunk during preprocessing.
 - During semantic search, compute similarity not only based on chunk content but also on metadata.
 - Improves the chance of retrieving more relevant and complete information.
+
+# Document Augmentation with Question Generation
+
+Sometimes, documents contain ambiguity or lack clear intent. Generating questions from the documents can help clarify the content and improve retrieval.
+
+### Purpose:
+- Makes the meaning and usage of the content more explicit.
+- Enhances the semantic richness of the knowledge base.
+
+### Method:
+- Use large language models (LLMs) to automatically generate question-answer pairs from the documents.
+- Store the generated Q&A alongside the original chunks.
+- During retrieval, match user queries not only with document chunks but also with generated questions to increase recall and relevance.
