@@ -5,12 +5,13 @@
 - [**Context Enriched**](#context-enriched)
 - [**Chunking with Metadata**](#chunking-with-metadata)
 - [**Document Augmentation with Question Generation**](#document-augmentation-with-question-generation)
+- [**Query Transformation**](#query-transformation)
 
 # Simple RAG 
 
 RAG is an approach combining information retrieval techniques and generative language models with the aim of generating answers to questions given our knowledge base. The simplest idea for implementing RAG architecture is as follows.
 
-### Steps 
+### Steps:  
 
 1. **Data Ingestion**:  
     Load and preprocess the raw text data to prepare it for further processing.
@@ -98,3 +99,16 @@ Sometimes, documents contain ambiguity or lack clear intent. Generating question
 - Use large language models (LLMs) to automatically generate question-answer pairs from the documents.
 - Store the generated Q&A alongside the original chunks.
 - During retrieval, match user queries not only with document chunks but also with generated questions to increase recall and relevance.
+
+# Query Transformation
+
+Enhancing the user query through prompt engineering techniques can significantly improve retrieval quality.
+
+### Techniques:
+1. **Query Rewriting**: Reformulate the original query for clarity and precision.
+2. **Query Expansion**: Add relevant keywords or context to enrich the query.
+3. **Query Decomposition**: Break down complex queries into simpler sub-questions.
+
+### Implementation:
+- These techniques can be automated using an intelligent agent (e.g., an LLM) before performing the retrieval step.
+- The transformed query helps in retrieving more accurate and contextually relevant chunks.
