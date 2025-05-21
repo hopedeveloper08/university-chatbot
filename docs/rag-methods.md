@@ -6,6 +6,7 @@
 - [**Chunking with Metadata**](#chunking-with-metadata)
 - [**Document Augmentation with Question Generation**](#document-augmentation-with-question-generation)
 - [**Query Transformation**](#query-transformation)
+- [**Reranking**](#reranking)
 
 # Simple RAG 
 
@@ -30,38 +31,22 @@ RAG is an approach combining information retrieval techniques and generative lan
 5. **Response Generation**:  
     Select the top-ranked chunks and pass them along with the user query to a language model, which generates the final response.
 
+# Improvement
+## Semantic Chunking
 
-# Semantic Chunking (Alternative to Fixed-Length Chunking)
+Semantic chunking splits text based on the semantic similarity between sentences, unlike fixed-length chunking which relies on character count.
 
-Unlike fixed-length chunking, semantic chunking divides the text based on content similarity between sentences.
+First, the text is divided into individual sentences. Each sentence is then converted into an embedding using a suitable model. Cosine similarity is calculated between each pair of consecutive sentences to detect potential breakpoints.
 
-### Steps:
+Breakpoints can be determined using methods such as:
+- Percentile thresholding
+- Standard deviation rule: `mean - (threshold × std_dev)`
+- Interquartile range: `q1 - 1.5 × (q3 - q1)`
 
-1. **Sentence Splitting**:  
-   Split the text into individual sentences.
+Based on these breakpoints, the text is segmented into semantically meaningful chunks. These new chunks are then re-embedded, and the standard RAG pipeline continues with semantic search and response generation.
 
-2. **Initial Embedding**:  
-   Generate embeddings for each sentence using a suitable embedding model.
 
-3. **Cosine Similarity Calculation**:  
-   Compute cosine similarity between each pair of consecutive sentences.
-
-4. **Breakpoint Detection**:  
-   Identify chunk boundaries using one of the following thresholding methods:
-   - **Percentile**: `percentile(similarities, threshold)`
-   - **Standard Deviation**: `mean - (threshold * std_dev)`
-   - **Interquartile Range (IQR)**: `q1 - 1.5 * (q3 - q1)`
-
-5. **Chunk Formation**:  
-   Break the text into semantic chunks at the detected breakpoints.
-
-6. **Re-embedding**:  
-   Generate embeddings for each new chunk.
-
-7. **Continue with Simple RAG Pipeline**:  
-   Perform semantic search and response generation as in the Simple RAG method.
-
-# Context Enriched
+## Context Enriched
 
 In the basic Simple RAG method, the top-K most similar chunks are retrieved and passed to the language model. However, this approach may lead to incomplete context, as relevant information might be spread across neighboring chunks.
 
@@ -74,7 +59,7 @@ For each of the top-K retrieved chunks:
 - Also include their neighboring chunks (e.g., previous and next based on their index).
 - This provides more complete and coherent context to the model during response generation.
 
-# Chunking with Metadata
+## Chunking with Metadata
 
 In standard chunking, important contextual information may be lost. To address this, metadata such as concise titles or tags can be added to each chunk to improve retrieval performance.
 
@@ -87,7 +72,7 @@ In standard chunking, important contextual information may be lost. To address t
 - During semantic search, compute similarity not only based on chunk content but also on metadata.
 - Improves the chance of retrieving more relevant and complete information.
 
-# Document Augmentation with Question Generation
+## Document Augmentation with Question Generation
 
 Sometimes, documents contain ambiguity or lack clear intent. Generating questions from the documents can help clarify the content and improve retrieval.
 
@@ -100,7 +85,7 @@ Sometimes, documents contain ambiguity or lack clear intent. Generating question
 - Store the generated Q&A alongside the original chunks.
 - During retrieval, match user queries not only with document chunks but also with generated questions to increase recall and relevance.
 
-# Query Transformation
+## Query Transformation
 
 Enhancing the user query through prompt engineering techniques can significantly improve retrieval quality.
 
@@ -112,3 +97,17 @@ Enhancing the user query through prompt engineering techniques can significantly
 ### Implementation:
 - These techniques can be automated using an intelligent agent (e.g., an LLM) before performing the retrieval step.
 - The transformed query helps in retrieving more accurate and contextually relevant chunks.
+
+## Reranking
+
+Reranking is used to improve the quality of retrieved results by applying a second-level ranking after the initial similarity-based retrieval.
+
+### How It Works:
+- After retrieving and ranking chunks based on cosine similarity, a second ranking is performed using more advanced techniques.
+
+### Techniques:
+1. **LLM-based Reranking**: Use a large language model to evaluate and reorder the top results based on relevance to the query.
+2. **Keyword-based Reranking**: Score and rank the chunks based on the presence and importance of individual query keywords.
+3. **FlashRank**: A powerful, lightweight and fast algorithm.
+
+This step refines the final set of retrieved chunks for better response quality.
