@@ -32,6 +32,7 @@ RAG is an approach combining information retrieval techniques and generative lan
     Select the top-ranked chunks and pass them along with the user query to a language model, which generates the final response.
 
 # Improvement
+
 ## Semantic Chunking
 
 Semantic chunking splits text based on the semantic similarity between sentences, unlike fixed-length chunking which relies on character count.
@@ -111,3 +112,9 @@ Reranking is used to improve the quality of retrieved results by applying a seco
 3. **FlashRank**: A powerful, lightweight and fast algorithm.
 
 This step refines the final set of retrieved chunks for better response quality.
+
+## Relevant Segment Extraction
+
+Sometimes, retrieved chunks are too long and contain unnecessary information. This can confuse the language model or reduce its ability to extract the needed details.
+
+To address this, Relevant Segment Extraction is used. Instead of passing the entire retrieved chunk to the model, only the part that is most relevant to the user query is extracted and provided to the model. This improves both the precision of the response and the efficiency of the system.
