@@ -118,3 +118,16 @@ This step refines the final set of retrieved chunks for better response quality.
 Sometimes, retrieved chunks are too long and contain unnecessary information. This can confuse the language model or reduce its ability to extract the needed details.
 
 To address this, Relevant Segment Extraction is used. Instead of passing the entire retrieved chunk to the model, only the part that is most relevant to the user query is extracted and provided to the model. This improves both the precision of the response and the efficiency of the system.
+
+## Contextual Compression
+
+Relevant Segment Extraction can sometimes miss important information or fail to clearly separate relevant from irrelevant parts. To overcome this, contextual compression is used.
+
+Instead of manually selecting relevant parts, the retrieved chunks are passed to a language model, which acts as an intelligent filter. The model compresses the content while preserving the information most relevant to the user query.
+
+There are several strategies for contextual compression:
+1. Selecting only the relevant parts.
+2. Summarizing the retrieved chunk with a focus on the query.
+3. Extracting or generating new content specifically related to the query.
+
+This method helps reduce noise while retaining useful information for better response generation.
