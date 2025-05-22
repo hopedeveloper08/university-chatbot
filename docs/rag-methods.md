@@ -7,6 +7,11 @@
 - [**Document Augmentation with Question Generation**](#document-augmentation-with-question-generation)
 - [**Query Transformation**](#query-transformation)
 - [**Reranking**](#reranking)
+- [**Relevant Segment Extraction**](#relevant-segment-extraction)
+- [**Contextual Compression**](#contextual-compression)
+- [**Feedback Loop**](#feedback-loop)
+- [**Adaptive Retrieval**](#adaptive-retrieval)
+- [**Self RAG**](#self-rag)
 
 # Simple RAG 
 
@@ -169,3 +174,15 @@ The model performs the following tasks:
 - Decide whether the generated response is appropriate and useful for answering the original query.
 
 This approach allows for more intelligent, query-aware handling of retrieval and generation, leading to improved accuracy and reliability in responses.
+
+## Proposition Chunking
+
+Proposition chunking transforms each chunk into a set of atomic propositions, making the content more precise and structured for retrieval and reasoning.
+
+Each atomic proposition should:
+- Express a single, clear fact.
+- Be understandable without external context.
+- Use full names instead of ambiguous references or pronouns.
+- Focus on one topic, avoiding conjunctions and multiple clauses.
+
+Once atomic propositions are generated, a separate model can be used to evaluate their quality. Only high-quality propositions are retained for use in the retrieval and generation process.
