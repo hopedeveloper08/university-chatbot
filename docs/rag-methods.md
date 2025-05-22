@@ -131,3 +131,41 @@ There are several strategies for contextual compression:
 3. Extracting or generating new content specifically related to the query.
 
 This method helps reduce noise while retaining useful information for better response generation.
+
+## Feedback Loop
+
+Integrating a feedback loop into the Simple RAG architecture introduces adaptability and continuous improvement over time.
+
+By storing the outcomes of user interactions and incorporating that feedback into future similarity scoring or reranking, the system can gradually enhance the accuracy of its retrievals.
+
+This dynamic approach helps fine-tune the system based on real user input, making it more effective and personalized over time.
+
+## Adaptive Retrieval
+
+Adaptive retrieval tailors the retrieval strategy based on the type of user query. By classifying queries into categories, the system can apply specialized techniques for more effective information retrieval.
+
+### Query Categories and Strategies:
+
+- **Factual Queries**:  
+  Focus on precision. Use a language model to refine and enrich the query with specific keywords before retrieval.
+- **Analytical Queries**:  
+  Cover all aspects of the query. Use a language model to decompose complex queries into simpler sub-questions and retrieve relevant content for each.
+- **Opinion-Based Queries**:  
+  Use the query to extract or generate a list of relevant perspectives or opinions using a language model.
+- **Contextual Queries**:  
+  Provide background summaries related to the query to establish a proper context before generating the final response.
+
+This approach increases the adaptability and accuracy of the RAG system across different user intents.
+
+## Self RAG
+
+Self RAG delegates decision-making to the language model itself, allowing it to dynamically control different stages of the RAG process based on the query and retrieved content.
+
+The model performs the following tasks:
+
+- Determine whether external information is needed for the given query.
+- Assess whether retrieved content is relevant to the query.
+- Evaluate if the generated response aligns well with the retrieved content.
+- Decide whether the generated response is appropriate and useful for answering the original query.
+
+This approach allows for more intelligent, query-aware handling of retrieval and generation, leading to improved accuracy and reliability in responses.
