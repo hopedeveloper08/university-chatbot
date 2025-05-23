@@ -12,6 +12,17 @@
 - [**Feedback Loop**](#feedback-loop)
 - [**Adaptive Retrieval**](#adaptive-retrieval)
 - [**Self RAG**](#self-rag)
+- [**Proposition Chunking**](#proposition-chunking)
+- [**Multi-Modal RAG**](#multi-modal-rag)
+- [**Combining Vector and Keyword Search**](#combining-vector-and-keyword-search)
+- [**Graph RAG**](#graph-rag)
+- [**Hierarchical Indices**](#hierarchical-indices)
+- [**Hypothetical Document Embedding**](#hypothetical-document-embedding)
+- [**Corrective RAG**](#corrective-rag)
+
+# RAG Methods Mind-Map
+
+![RAG-methods-mindmap](images/RAG-Methods-Mindmap.jpg)
 
 # Simple RAG 
 
@@ -36,7 +47,6 @@ RAG is an approach combining information retrieval techniques and generative lan
 5. **Response Generation**:  
     Select the top-ranked chunks and pass them along with the user query to a language model, which generates the final response.
 
-# Improvement
 
 ## Semantic Chunking
 
