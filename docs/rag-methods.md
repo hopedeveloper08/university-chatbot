@@ -194,3 +194,14 @@ When the data includes images alongside text, Multi-Modal RAG can be used to ena
 By applying captioning techniques, each image is converted into descriptive text. These captions are then embedded and stored along with textual data, enabling the system to retrieve and reason over both text and images based on the user query.
 
 This approach extends the capabilities of RAG to support richer, multi-modal information sources.
+
+## Combining Vector and Keyword Search
+
+Semantic similarity-based search is effective for understanding meaning but may struggle with exact matches of keywords or domain-specific terms.
+
+To improve retrieval accuracy, semantic search can be combined with keyword-based methods such as BM25. This hybrid approach leverages:
+
+- **Vector Search**: For capturing semantic relevance.
+- **Keyword Search (e.g., BM25)**: For matching exact terms, acronyms, or technical phrases.
+
+By blending both signals, the system can retrieve results that are both contextually relevant and lexically precise.
