@@ -237,3 +237,11 @@ In Simple RAG, short or vague user queries often lead to weak embeddings, result
 To address this, Hypothetical Document Embedding (HyDE) can be used. Instead of embedding the raw query directly, a language model first generates a hypothetical document based on the query. This generated content is then embedded and used for retrieval.
 
 The richer semantic representation of the hypothetical document leads to more accurate and relevant search results.
+
+## Corrective RAG
+
+In cases where the external knowledge base is insufficient to answer a user's query, Corrective RAG introduces a fallback mechanism.
+
+After initial retrieval and response generation, the system evaluates whether the retrieved information is adequate. If not, it performs a secondary retrieval from broader sources, such as the internet or an external API.
+
+This two-step approach ensures that incomplete or weak internal knowledge can be corrected through dynamic access to additional data, improving the overall reliability and completeness of responses.
