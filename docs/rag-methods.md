@@ -229,3 +229,11 @@ The retrieval process works in two stages:
 2. Use the matched summaries to locate and retrieve the corresponding detailed chunks from the lower layer.
 
 This improves both efficiency and accuracy by narrowing down the search space while preserving access to full information.
+
+## Hypothetical Document Embedding
+
+In Simple RAG, short or vague user queries often lead to weak embeddings, resulting in poor retrieval performance.
+
+To address this, Hypothetical Document Embedding (HyDE) can be used. Instead of embedding the raw query directly, a language model first generates a hypothetical document based on the query. This generated content is then embedded and used for retrieval.
+
+The richer semantic representation of the hypothetical document leads to more accurate and relevant search results.
