@@ -205,3 +205,15 @@ To improve retrieval accuracy, semantic search can be combined with keyword-base
 - **Keyword Search (e.g., BM25)**: For matching exact terms, acronyms, or technical phrases.
 
 By blending both signals, the system can retrieve results that are both contextually relevant and lexically precise.
+
+## Graph RAG
+
+Graph RAG improves retrieval by organizing knowledge as a graph instead of a flat collection of documents.
+
+In this approach, chunks or entities are represented as nodes, and their relationships are modeled as edges. This structure enables:
+
+- Easy traversal to discover closely related content.
+- Preservation of relationships between chunks.
+- Enhanced retrieval of relevant information based on graph connectivity.
+
+Graph-based organization allows for more structured and context-aware retrieval compared to traditional vector-only methods.
