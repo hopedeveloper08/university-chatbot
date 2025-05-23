@@ -186,3 +186,11 @@ Each atomic proposition should:
 - Focus on one topic, avoiding conjunctions and multiple clauses.
 
 Once atomic propositions are generated, a separate model can be used to evaluate their quality. Only high-quality propositions are retained for use in the retrieval and generation process.
+
+## Multi-Modal RAG
+
+When the data includes images alongside text, Multi-Modal RAG can be used to enable image-based retrieval and reasoning.
+
+By applying captioning techniques, each image is converted into descriptive text. These captions are then embedded and stored along with textual data, enabling the system to retrieve and reason over both text and images based on the user query.
+
+This approach extends the capabilities of RAG to support richer, multi-modal information sources.
