@@ -217,3 +217,15 @@ In this approach, chunks or entities are represented as nodes, and their relatio
 - Enhanced retrieval of relevant information based on graph connectivity.
 
 Graph-based organization allows for more structured and context-aware retrieval compared to traditional vector-only methods.
+
+## Hierarchical Indices
+
+In simple RAG systems, chunks may either lose context due to being too small or become too large to retrieve relevant information efficiently.
+
+Hierarchical indices solve this by creating a multi-level structure. Typically, a top layer contains summarized representations of documents or chunks, and a bottom layer holds the full content.
+
+The retrieval process works in two stages:
+1. Perform initial retrieval on the summarized layer for speed and focus.
+2. Use the matched summaries to locate and retrieve the corresponding detailed chunks from the lower layer.
+
+This improves both efficiency and accuracy by narrowing down the search space while preserving access to full information.
