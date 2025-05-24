@@ -13,8 +13,8 @@ Unversity students and staff frequently seek information about academic regulati
 ## To Do List
 
 - [x] Problem Statement
-- [ ] Review of Existing Methods
-- [ ] Selection of the Appropriate Method
+- [x] Review of Existing Methods
+- [ ] Selection and Designing of the Appropriate Method
 - [ ] Implementation of the Selected Method
 - [ ] Testing
 - [ ] Method Improvement

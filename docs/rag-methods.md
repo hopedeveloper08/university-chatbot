@@ -1,7 +1,7 @@
 # Table of contents
 
 - [**Simple RAG**](#simple-rag)
-- [**Semantic Chunking**](#semantic-chunking-alternative-to-fixed-length-chunking)
+- [**Semantic Chunking**](#semantic-chunking)
 - [**Context Enriched**](#context-enriched)
 - [**Chunking with Metadata**](#chunking-with-metadata)
 - [**Document Augmentation with Question Generation**](#document-augmentation-with-question-generation)
