@@ -14,7 +14,7 @@ Unversity students and staff frequently seek information about academic regulati
 
 - [x] Problem Statement
 - [x] Review of Existing Methods
-- [ ] Selection and Designing of the Appropriate Method
+- [x] Selection and Designing of the Appropriate Method
 - [ ] Implementation of the Selected Method
 - [ ] Testing
 - [ ] Method Improvement
