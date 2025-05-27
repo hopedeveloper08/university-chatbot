@@ -1,0 +1,2 @@
+model_name: HooshvareLab/bert-fa-base-uncased
+device: cuda
