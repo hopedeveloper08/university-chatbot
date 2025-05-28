@@ -3,4 +3,6 @@ langchain_community
 langchain-text-splitters
 langchain-huggingface
 
+faiss-cpu
+
 pyyaml
