@@ -1,0 +1,3 @@
+search_type: similarity
+search_kwargs:
+  k: 5
