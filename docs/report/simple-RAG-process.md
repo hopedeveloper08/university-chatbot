@@ -66,3 +66,34 @@ To store and retrieve vector representations of text chunks for similarity-based
    - Generates and stores the vector index.
 2. **Vector Store Loader**:
    - Loads a pre-existing vector store from disk using its path and the same embedding model.
+
+# Retrieval & Generation Phase
+
+## Overview
+
+This phase focuses on implementing a **retrieval-augmented generation (RAG)** pipeline. It combines a retriever module that fetches relevant information from a vector store with a generator module that formulates answers based on a prompt template and a language model.
+
+## Components
+
+### 1. **Retriever Module**
+
+* Initializes a retriever from an existing **vector database**.
+* Responsible for fetching top relevant documents in response to user queries.
+* Acts as the first step in the pipeline to provide context for generation.
+
+### 2. **Generator Module**
+
+* Composed of:
+
+  * **Prompt Template**: Defines the structure of input to the language model.
+  * **Language Model**: In version 1, we use [`Ollama`](https://ollama.com) with the `Gemma3:4b` model as the LLM backend.
+* Generates the final response by combining the query and retrieved documents using the prompt template.
+
+### 3. **Question-Answer Chain**
+
+* A **pipeline** that links the retriever and generator components.
+* When the user submits a query:
+
+  1. The retriever fetches relevant context.
+  2. The generator uses the context and prompt to produce a final answer.
+* This chain abstracts the process into a seamless **Q\&A experience** for the end user.
