@@ -18,5 +18,6 @@ def get_llm(config_path):
     config = load_yaml(config_path)
     return ChatOllama(
         model=config['model'],
-        temperature=config['temperature']
+        temperature=config['temperature'],
+        streaming=True
     )

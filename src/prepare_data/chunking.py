@@ -10,12 +10,11 @@ def loading_dataset_texts(path):
     return dataset
 
 
-def chunking_text(config_path, data_path):
+def chunking_text(config_path, dataset):
     config = load_yaml(config_path) 
     recursive_splitter = RecursiveCharacterTextSplitter(
         chunk_size=config['chunk_size'],
         chunk_overlap=config['chunk_overlap'],
         separators=config['separators']
     )
-    dataset = loading_dataset_texts(data_path)
     return recursive_splitter.split_documents(dataset)
