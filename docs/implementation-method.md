@@ -1,3 +1,6 @@
+
+# Version 1.0 - Simple RAG
+
 ## Overview
 
 This project aims to implement a Retrieval-Augmented Generation (RAG) system in multiple phases, starting with a **Simple RAG** architecture. The primary goal is to build a modular and extensible pipeline that combines document preprocessing, semantic search using vector databases, and large language model (LLM) responses.
@@ -11,8 +14,7 @@ The system consists of four main components:
 
 Future versions will incrementally add advanced capabilities to improve retrieval precision and response quality.
 
-
-## Phase 1: Simple RAG
+## Steps
 
 ### 1. Document Preprocessing & Chunking
 
@@ -34,23 +36,37 @@ Once the vector store is ready, a user query is embedded and semantically matche
 
 We employ the **Gemma 3:4b** LLM to generate final answers. The model receives the retrieved chunks and user query as context in a structured prompt. This setup completes the RAG pipeline, delivering context-aware responses.
 
+# Version 1.1 - Clean input - Streams output 
 
-## Phase 2 and Beyond: Planned Enhancements
+### 1. Modular Refactoring
 
-The following enhancements are planned for upcoming versions:
+The system architecture has been restructured into two clearly separated modules:
 
-### 2.1 Metadata-Aware Retrieval
+- **Offline Module (`prepare_data`)**: Responsible for data preprocessing, chunking, and embedding.
+    
+- **Online Module (`rag_system`)**: Handles real-time query processing and response generation.
+    
 
-- Attach metadata (e.g., source, document type, date) to each chunk.
-- Enhance retrieval by filtering or prioritizing based on metadata fields.
+Each module exposes a single high-level interface:
 
-### 2.2 QA-Based Data Augmentation
+- `prepare_data()`: Preprocesses the raw documents, performs chunking, and stores embeddings in the vector database.
+    
+- `build_rag_chain()`: Loads the vector store and constructs the full Retrieval-Augmented Generation pipeline for inference.
+    
 
-- Automatically generate question-answer pairs from documents and chunks.
-- Store and retrieve them in a dedicated vector space.
-- Enable hybrid retrieval of both facts and direct answers.
+This modular design improves maintainability and enables independent testing of the offline and online components.
 
-### 2.3 Context-Aware Retrieval Expansion
+### 2. Enhanced Data Cleaning 
 
-- During retrieval, fetch adjacent chunks (previous and next) to enrich context.
-- Improve completeness and coherence of the retrieved knowledge.
+The data pipeline now includes more rigorous preprocessing steps. These enhancements help reduce noise and improve semantic quality:
+
+- Removal of irrelevant symbols, HTML tags, and redundant whitespace
+- Normalization of Persian characters (e.g., ی to ي, ک to ك)
+- Sentence segmentation based on Persian punctuation and linguistic patterns
+- Filtering of low-information or overly short segments
+
+This results in higher-quality chunks for embedding and retrieval.
+
+### 3. Real-Time Streaming Response
+
+The response generation process now supports **streaming output**. Once the retrieval and prompt preparation are complete, the LLM generates the response incrementally. This leads to faster perceived latency and improves user experience, especially for long-form answers.
