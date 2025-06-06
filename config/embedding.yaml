@@ -1,2 +1,2 @@
-model_name: HooshvareLab/bert-fa-base-uncased
+model_name: HooshvareLab/bert-fa-zwnj-base
 device: cuda

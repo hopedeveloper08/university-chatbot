@@ -1,3 +1,3 @@
-chunk_size: 2000
-chunk_overlap: 200
-separators: [ماده, تبصره,  .]
+chunk_size: 500
+chunk_overlap: 50
+separators: [ماده, ., \n]

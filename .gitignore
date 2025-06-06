@@ -1,5 +1,6 @@
-data/raw/
-data/preprocess/
-config/collection/
+# data
+data/
+collection/
 
+# python
 __pycache__/
