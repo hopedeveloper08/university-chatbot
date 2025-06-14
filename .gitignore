@@ -1,7 +1,10 @@
 # data
 data/
-collection/
+config/collection/
 
 # python
 __pycache__/
 notebooks/
+
+# RAG system
+config/embedding_model

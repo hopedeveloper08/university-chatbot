@@ -1,2 +1,2 @@
-model_name: HooshvareLab/bert-fa-zwnj-base
+model_name: config/embedding_model
 device: cuda
