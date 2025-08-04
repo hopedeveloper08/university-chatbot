@@ -1,1 +1,1 @@
-# university-chatbot
+# University ChatBot based on RAG system
