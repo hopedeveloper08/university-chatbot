@@ -3,4 +3,6 @@ __pycache__/
 data/raw/
 data/knowledge-base/
 
-config/embedding_model/
+embedding_model/
+
+.env

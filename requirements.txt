@@ -4,5 +4,8 @@ langchain_community
 langchain-text-splitters
 langchain_huggingface
 langchain_ollama
+langchain-google-genai
 
 faiss-cpu
+
+streamlit
